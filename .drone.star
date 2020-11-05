@@ -62,7 +62,7 @@ def build():
             'settings': {
                 'dry_run': True,
                 'registry': 'registry.owncloud.com',
-                'repo': 'registry.owncloud.com/internal/client-updater',
+                'repo': 'registry.owncloud.com/internal/server-updater',
                 'tags': 'latest',
             },
             'when': {
@@ -76,7 +76,7 @@ def build():
             'pull': 'always',
             'settings': {
                 'registry': 'registry.owncloud.com',
-                'repo': 'registry.owncloud.com/internal/client-updater',
+                'repo': 'registry.owncloud.com/internal/server-updater',
                 'auto_tag': True,
                 'username': {
                     'from_secret': 'docker_username',
