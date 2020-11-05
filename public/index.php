@@ -11,7 +11,7 @@
  * along with this program. If not, see <https://owncloud.com/licenses/owncloud-commercial/>.
  *
  */
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Set Content-Type to XML
 header('Content-Type: application/xml');
@@ -36,7 +36,7 @@ try {
 	exit();
 }
 
-$config = new \UpdateServer\Config(__DIR__ . '/config/config.php');
+$config = new \UpdateServer\Config(__DIR__ . '/../config/config.php');
 
 // Return a response
 $response = new \UpdateServer\Response($request, $config);

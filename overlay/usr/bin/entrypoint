@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+set -eo pipefail
+
+source /usr/local/lib/log.sh
+
+/usr/local/bin/gomplate -o /etc/php7/php.ini -f /etc/templates/php.ini.tmpl
+
+log_info "Starting ownCloud Updater Server ...\n"
+
+php-fpm7 -F &
+exec nginx -g "daemon off;"
