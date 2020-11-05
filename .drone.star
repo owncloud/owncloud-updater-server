@@ -63,7 +63,7 @@ def build():
 					'dry_run': True,
 					'registry': 'registry.owncloud.com',
 					'repo': 'registry.owncloud.com/internal/client-updater',
-					'auto_tag': True,
+					'tags': 'latest',
 				},
 				'when': {
 					'ref': [
