@@ -1,0 +1,33 @@
+<?php
+return [
+{{- range $index, $element := ((getenv ((print "OWNCLOUD_UPDATER_SERVER_CHANNELLIST") | strings.ToUpper)) | strings.Split " ") }}
+{{- $element = $element | strings.TrimSpace }}
+{{- $infix := $element | strings.ReplaceAll "-" "_" }}
+    '{{ $element }}' => [
+        {{- range $index, $version := ((getenv ((print "OWNCLOUD_UPDATER_SERVER_" $infix "_VERSIONS") | strings.ToUpper)) | strings.Split " ") }}
+        {{- $version = $version | strings.TrimSpace }}
+        {{- $verfix := $version | strings.ReplaceAll "." "_" }}
+        {{- if ne "" $version }}
+        '{{ $version }}' => [
+            {{- $latest := (getenv ((print "OWNCLOUD_UPDATER_SERVER_" $infix "_" $verfix "_LATEST") | strings.ToUpper) | strings.TrimSpace) }}
+            {{- if ne "" $latest }}
+            'latest' => '{{ $latest }}',
+            {{- end }}
+            {{- $web := (getenv ((print "OWNCLOUD_UPDATER_SERVER_" $infix "_" $verfix "_WEB") | strings.ToUpper) | strings.TrimSpace) }}
+            {{- if ne "" $web }}
+            'web' => '{{ $web }}',
+            {{- end }}
+            {{- $downloadUrl := (getenv ((print "OWNCLOUD_UPDATER_SERVER_" $infix "_" $verfix "_DOWNLOAD_URL") | strings.ToUpper) | strings.TrimSpace) }}
+            {{- if ne "" $downloadUrl }}
+            'downloadUrl' => '{{ $downloadUrl }}',
+            {{- end }}
+        ],
+        {{- end }}
+        {{- end }}
+    ],
+{{- end }}
+    {{- $eolLatest := (getenv "OWNCLOUD_UPDATER_SERVER_EOL_LATEST" | strings.TrimSpace) }}
+    {{- if ne "" $eolLatest }}
+    'eol_latest' => '{{ $eolLatest }}',
+    {{- end }}
+];
