@@ -4,7 +4,7 @@ config = {
         'channel': 'server',
         'from_secret': 'private_rocketchat'
     },
-    'branches': ['master'],
+    'branches': ['main'],
     'appInstallCommand': 'composer install',
 }
 
