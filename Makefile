@@ -26,7 +26,7 @@ $(composer_dev_deps):
 $(behat): $(composer_dev_deps)
 
 $(server_pid_file):
-	{ php -S $(SERVER_HOST) index.php & echo $$! > $@; }
+	{ php -S $(SERVER_HOST) public/index.php & echo $$! > $@; }
 
 .PHONY: start-server
 start-server: $(server_pid_file)
