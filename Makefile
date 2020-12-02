@@ -5,6 +5,7 @@ SERVER_HOST=localhost:8888
 composer_deps=vendor
 composer_dev_deps=vendor/bin/
 behat=$(composer_deps)/bin/behat
+phpunit=$(composer_deps)/bin/phpunit
 server_pid_file=make-test-server.pid
 
 .PHONY: all
@@ -41,3 +42,6 @@ test: $(behat) start-server
 	cd tests/integration && $(abspath $(behat)) .
 	$(MAKE) stop-server
 
+.PHONY: test-php-unit
+test-php-unit: $(composer_dev_deps)
+	$(phpunit) -c tests/unit/phpunit.xml

@@ -14,11 +14,12 @@
 
 namespace Tests;
 
+use PHPUnit\Framework\TestCase;
 use UpdateServer\Config;
 use UpdateServer\Request;
 use UpdateServer\Response;
 
-class ResponseTest extends \PHPUnit_Framework_TestCase {
+class ResponseTest extends TestCase {
 	/** @var Request */
 	private $request;
 	/** @var Config */
@@ -26,7 +27,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
 	/** @var Response */
 	private $response;
 
-	public function setUp(): void{
+	public function setUp(): void {
 		$this->request = $this->getMockBuilder('\UpdateServer\Request')
 			->disableOriginalConstructor()->getMock();
 		$this->config = $this->getMockBuilder('\UpdateServer\Config')
@@ -112,7 +113,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider dailyVersionProvider
 	 */
-	public function testBuildResponseForOutdatedDaily($version, $expected) {
+	public function testBuildResponseForOutdatedDaily(string $version, string $expected) {
 		$this->request
 			->expects($this->once())
 			->method('getChannel')
@@ -174,7 +175,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider dailyVersionProvider
 	 */
-	public function testBuildResponseForCurrentDaily($version) {
+	public function testBuildResponseForCurrentDaily(string $version) {
 		$this->request
 			->expects($this->once())
 			->method('getChannel')
@@ -661,12 +662,14 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
 	 *
 	 * @dataProvider responseProvider
 	 */
-	public function testBuildResponseForChannel($channel,
-												$majorVersion,
-												$minorVersion,
-												$maintenanceVersion,
-												$revisionVersion,
-												$expected) {
+	public function testBuildResponseForChannel(
+	    string $channel,
+        string $majorVersion,
+        string $minorVersion,
+        string $maintenanceVersion,
+        string $revisionVersion,
+        string $expected
+    ) {
 		$config = [
 			'8.2' => [
 				'latest' => '8.2.2',

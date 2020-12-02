@@ -8,7 +8,6 @@ config = {
     'appInstallCommand': 'composer install',
 }
 
-
 # This starlark code is based on the "template" used for core apps
 # But it is cut-down here to just what is useful, because this is not a core app
 # CI here does not need to be able to install core and...
@@ -30,14 +29,11 @@ def main(ctx):
 
     return before + stages + build + after
 
-
 def beforePipelines():
     return []
 
-
 def stagePipelines():
-    return []
-
+    return [phpunit(), integration()]
 
 def buildPipelines():
     return [build()]
@@ -46,15 +42,69 @@ def buildPipelines():
 def afterPipelines():
     return [notify()]
 
+def phpunit():
+    result = {
+        'kind': 'pipeline',
+        'type': 'docker',
+        'name': 'phpunit',
+        'steps': [{
+            'name': 'test-phpunit',
+            'image': 'owncloudci/php:7.4',
+            'pull': 'always',
+            'commands': [
+                'make test-php-unit'
+            ],
+            'when': {
+                'ref': [
+                    'refs/pull/**',
+                ]
+            }
+        }],
+        'depends_on': [],
+        'trigger': {
+            'ref': ['refs/pull/**', 'refs/tags/**']
+        }
+    }
+
+    for branch in config['branches']:
+        result['trigger']['ref'].append('refs/heads/%s' % branch)
+
+    return result
+
+def integration():
+    result = {
+        'kind': 'pipeline',
+        'type': 'docker',
+        'name': 'behat-integration',
+        'steps': [{
+            'name': 'test-integration',
+            'image': 'owncloudci/php:7.4',
+            'pull': 'always',
+            'commands': [
+                'make test'
+            ],
+            'when': {
+                'ref': [
+                    'refs/pull/**',
+                ]
+            }
+        }],
+        'depends_on': [],
+        'trigger': {
+            'ref': ['refs/pull/**', 'refs/tags/**']
+        }
+    }
+
+    for branch in config['branches']:
+        result['trigger']['ref'].append('refs/heads/%s' % branch)
+
+    return result
 
 def build():
     result = {
-        'kind':
-        'pipeline',
-        'type':
-        'docker',
-        'name':
-        'build',
+        'kind': 'pipeline',
+        'type': 'docker',
+        'name': 'build',
         'steps': [{
             'name': 'docker-dryrun',
             'image': 'plugins/docker',
@@ -102,7 +152,6 @@ def build():
 
     return result
 
-
 def notify():
     result = {
         'kind':
@@ -136,7 +185,6 @@ def notify():
         result['trigger']['ref'].append('refs/heads/%s' % branch)
 
     return result
-
 
 def dependsOn(earlierStages, nextStages):
     for earlierStage in earlierStages:

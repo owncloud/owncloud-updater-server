@@ -13,9 +13,8 @@
  */
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 
-class FeatureContext implements Context, SnippetAcceptingContext {
+class FeatureContext implements Context {
     /** @var string */
     private $releaseChannel = '';
     /** @var string */
@@ -68,7 +67,7 @@ class FeatureContext implements Context, SnippetAcceptingContext {
     }
 
     /**
-     * Builds the version to sent
+     * Builds the version to send
      *
      * @return string
      */
@@ -113,7 +112,7 @@ class FeatureContext implements Context, SnippetAcceptingContext {
         $json = json_encode($xml);
         $this->resultArray = json_decode($json, TRUE);
         if(count($this->resultArray) !== 4) {
-            throw new \Exception('Response contains not 4 array elements.');
+            throw new \Exception('Response does not contain 4 array elements.');
         }
     }
 
@@ -126,7 +125,7 @@ class FeatureContext implements Context, SnippetAcceptingContext {
             throw new \Exception('Version is empty in result array');
         }
         if($version !== $arg1) {
-            throw new \Exception("Expected version $arg1 does not equals $version");
+            throw new \Exception("Expected version $arg1 does not equal $version");
         }
     }
 
@@ -139,7 +138,7 @@ class FeatureContext implements Context, SnippetAcceptingContext {
             throw new \Exception('URL is empty in result array');
         }
         if($url !== $arg1) {
-            throw new \Exception("Expected url $arg1 does not equals $url");
+            throw new \Exception("Expected url $arg1 does not equal $url");
         }
     }
 
@@ -152,7 +151,7 @@ class FeatureContext implements Context, SnippetAcceptingContext {
             throw new \Exception('web is empty in result array');
         }
         if($web !== $arg1) {
-            throw new \Exception("Expected web $arg1 does not equals $web");
+            throw new \Exception("Expected web $arg1 does not equal $web");
         }
     }
 
