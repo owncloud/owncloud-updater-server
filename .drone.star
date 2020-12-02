@@ -33,7 +33,7 @@ def beforePipelines():
     return []
 
 def stagePipelines():
-    return [phpunit()]
+    return [phpunit(), integration()]
 
 def buildPipelines():
     return [build()]
@@ -53,6 +53,35 @@ def phpunit():
             'pull': 'always',
             'commands': [
                 'make test-php-unit'
+            ],
+            'when': {
+                'ref': [
+                    'refs/pull/**',
+                ]
+            }
+        }],
+        'depends_on': [],
+        'trigger': {
+            'ref': ['refs/pull/**', 'refs/tags/**']
+        }
+    }
+
+    for branch in config['branches']:
+        result['trigger']['ref'].append('refs/heads/%s' % branch)
+
+    return result
+
+def integration():
+    result = {
+        'kind': 'pipeline',
+        'type': 'docker',
+        'name': 'behat-integration',
+        'steps': [{
+            'name': 'test-integration',
+            'image': 'owncloudci/php:7.4',
+            'pull': 'always',
+            'commands': [
+                'make test'
             ],
             'when': {
                 'ref': [
