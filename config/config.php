@@ -88,7 +88,7 @@ return [
 	],
 	'beta' => [
 		'10.5' => [
-			'downloadUrl' => 'https://download.owncloud.org/community/testing/owncloud-10.6.0RC1.tar.bz2',
+			'latest' => '10.6.0',
 			'web' => 'https://doc.owncloud.org/server/10.5/admin_manual/maintenance/upgrade.html',
 		],
 		'10.4.1' => [
@@ -97,8 +97,12 @@ return [
 		],
 	],
 	'daily' => [
-		'10.5' => [
+		'10.6' => [
 			'downloadUrl' => 'https://download.owncloud.org/community/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.org/server/10.6/admin_manual/maintenance/upgrade.html',
+		],
+		'10.5' => [
+			'latest' => '10.6.0',
 			'web' => 'https://doc.owncloud.org/server/10.5/admin_manual/maintenance/upgrade.html',
 		],
 		'10.4.100' => [
