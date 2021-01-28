@@ -1,6 +1,13 @@
 Feature: Testing the update scenario of releases on the production channel
 ##### Please always order by version number descending #####
 
+  ##### Tests for 10.6.x should go below #####
+  Scenario: Updating an outdated ownCloud 10.6.0 on the production channel
+    Given There is a release with channel "production"
+    And The received version is "10.6.0"
+    When The request is sent
+    Then The response is empty
+
   ##### Tests for 10.5.x should go below #####
   Scenario: Updating an outdated ownCloud 10.5.0 on the production channel
     Given There is a release with channel "production"
@@ -13,7 +20,8 @@ Feature: Testing the update scenario of releases on the production channel
     Given There is a release with channel "production"
     And The received version is "10.4.1"
     When The request is sent
-    Then The response is empty
+    Then The response is non-empty
+    And URL to download is "https://download.owncloud.org/community/owncloud-10.5.0.zip"
     
   Scenario: Updating an outdated ownCloud 10.4.0 on the production channel
     Given There is a release with channel "production"
