@@ -1,6 +1,8 @@
 
 COMPOSER=composer
 SERVER_HOST=localhost:8888
+PRODUCTION_HOST=updates.owncloud.com/server/
+PRODUCTION_PROTO=https
 
 composer_deps=vendor
 composer_dev_deps=vendor/bin/
@@ -41,6 +43,10 @@ stop-server:
 test: $(behat) start-server
 	cd tests/integration && $(abspath $(behat)) .
 	$(MAKE) stop-server
+
+.PHONY: test-production
+test-production:
+	cd tests/integration && SERVER_HOST=${PRODUCTION_HOST} SERVER_PROTO=${PRODUCTION_PROTO} $(abspath $(behat)) .
 
 .PHONY: test-php-unit
 test-php-unit: $(composer_dev_deps)
