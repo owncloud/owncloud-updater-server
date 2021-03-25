@@ -81,17 +81,24 @@ return [
 	'production' => [
 	],
 	'stable' => [
+		'10.6' => [
+			'latest' => '10.7.0',
+			'web' => 'https://doc.owncloud.org/server/10.6/admin_manual/maintenance/upgrade.html',
+		],
 	],
 	'beta' => [
 		'10.6' => [
-			'latest' => '10.7.0RC2',
-			'downloadUrl' => 'https://download.owncloud.org/community/testing/owncloud-10.7.0RC2-qa.zip',
+			'latest' => '10.7.0',
 			'web' => 'https://doc.owncloud.org/server/10.6/admin_manual/maintenance/upgrade.html',
 		],
 	],
 	'daily' => [
-		'10.6' => [
+		'10.7' => [
 			'downloadUrl' => 'https://download.owncloud.org/community/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
+		],
+		'10.6' => [
+			'latest' => '10.7.0',
 			'web' => 'https://doc.owncloud.org/server/10.6/admin_manual/maintenance/upgrade.html',
 		],
 	],

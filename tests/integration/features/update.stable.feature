@@ -13,7 +13,8 @@ Feature: Testing the update scenario of releases on the stable channel
     Given There is a release with channel "stable"
     And The received version is "10.6.0"
     When The request is sent
-    Then The response is empty
+    Then The response is non-empty
+    And URL to download is "https://download.owncloud.org/community/owncloud-10.7.0.zip"
 
   ##### Tests for 10.5.x should go below #####
   Scenario: Updating an ownCloud 10.5.0 on the stable channel
