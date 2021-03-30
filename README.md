@@ -20,3 +20,13 @@ Example call: update-server/?version=8x2x0x12x1448709225.0768x1448709281xstablex
   <web>https://doc.owncloud.org/server/8.1/admin_manual/maintenance/upgrade.html</web>
 </owncloud>
 ```
+
+## Testing against a production updater server instance
+`make test-production`
+
+
+## Testing against any updater server instance
+```bash
+cd tests/integration
+SERVER_PROTO="http" SERVER_HOST="example.org:8080/whatever" ../../vendor/bin/behat
+```

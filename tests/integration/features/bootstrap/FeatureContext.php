@@ -86,6 +86,24 @@ class FeatureContext implements Context {
 
         return implode('x', $parameters);
     }
+    
+    /**
+     * Builds a base update server URL
+     *
+     * @return string
+     */
+    private function getBaseServerUrl() {
+        $proto = getenv('SERVER_PROTO');
+        if ($proto === false) {
+            $proto = 'http';
+        }
+        $serverHost = getenv('SERVER_HOST');
+        if ($serverHost === false) {
+            $serverHost = 'localhost:8888';
+        }
+        $serverHost = rtrim($serverHost, '/');
+        return "${proto}://${serverHost}/?version=";
+    }
 
     /**
      * @When The request is sent
@@ -93,7 +111,7 @@ class FeatureContext implements Context {
     public function theRequestIsSent() {
         $ch = curl_init();
         $optArray = array(
-            CURLOPT_URL => 'http://localhost:8888/?version='.$this->buildVersionToSend(),
+            CURLOPT_URL => $this->getBaseServerUrl() . $this->buildVersionToSend(),
             CURLOPT_RETURNTRANSFER => true
         );
         curl_setopt_array($ch, $optArray);
