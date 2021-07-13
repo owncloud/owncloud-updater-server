@@ -1,11 +1,19 @@
 Feature: Testing the update scenario of releases on the beta channel
 ##### Please always order by version number descending #####
+  ##### Tests for 10.8.x should go below #####
+  Scenario: Updating an outdated ownCloud 10.8.0 on the beta channel
+    Given There is a release with channel "beta"
+    And The received version is "10.8.0"
+    When The request is sent
+    Then The response is empty
+
   ##### Tests for 10.7.x should go below #####
   Scenario: Updating an outdated ownCloud 10.7.0 on the beta channel
     Given There is a release with channel "beta"
     And The received version is "10.7.0"
     When The request is sent
-    Then The response is empty
+    Then The response is non-empty
+    And URL to download is "https://download.owncloud.org/community/testing/owncloud-10.8.0beta2-qa.zip"
     
   ##### Tests for 10.6.0 should go below #####
   Scenario: Updating an ownCloud 10.6.0 on the beta channel
