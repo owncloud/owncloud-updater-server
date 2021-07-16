@@ -84,8 +84,8 @@ return [
 	],
 	'beta' => [
 		'10.7' => [
-			'latest' => '10.8.0beta2',
-			'downloadUrl' => 'https://download.owncloud.org/community/testing/owncloud-10.8.0beta2-qa.zip',
+			'latest' => '10.8.0rc1',
+			'downloadUrl' => 'https://download.owncloud.org/community/testing/owncloud-10.8.0RC1-qa.zip',
 			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
 		],
 	],
