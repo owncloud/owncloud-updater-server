@@ -119,7 +119,7 @@ return [
 		],
 		'10.4.1' => [
 			'latest' => '10.8.0',
-			'web' => 'https://doc.owncloud.org/server/10.5/admin_manual/maintenance/upgrade.html',
+			'web' => 'https://doc.owncloud.org/server/10.4/admin_manual/maintenance/upgrade.html',
 		],
 		// 10.4.1 is the most recent with PHP 7.1 support. So 10.3.0 - 10.4.0 should always update through it
 		'10.4.0' => [
