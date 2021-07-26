@@ -81,17 +81,24 @@ return [
 	'production' => [
 	],
 	'stable' => [
+		'10.7' => [
+			'latest' => '10.8.0',
+			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
+		],
 	],
 	'beta' => [
 		'10.7' => [
-			'latest' => '10.8.0rc1',
-			'downloadUrl' => 'https://download.owncloud.org/community/testing/owncloud-10.8.0RC1-qa.zip',
+			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
 		],
 	],
 	'daily' => [
-		'10.7' => [
+		'10.8' => [
 			'downloadUrl' => 'https://download.owncloud.org/community/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
+		],
+		'10.7' => [
+			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
 		],
 	],
@@ -99,19 +106,19 @@ return [
 	// if you move anything here make sure you updated 'eol_latest' key 
 	'eol' => [
 		'10.6' => [
-			'latest' => '10.7.0',
+			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.6/admin_manual/maintenance/upgrade.html',
 		],
 		'10.5' => [
-			'latest' => '10.7.0',
+			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.5/admin_manual/maintenance/upgrade.html',
 		],
 		'10.4.100' => [
-			'latest' => '10.7.0',
+			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.4/admin_manual/maintenance/upgrade.html',
 		],
 		'10.4.1' => [
-			'latest' => '10.7.0',
+			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.5/admin_manual/maintenance/upgrade.html',
 		],
 		// 10.4.1 is the most recent with PHP 7.1 support. So 10.3.0 - 10.4.0 should always update through it
