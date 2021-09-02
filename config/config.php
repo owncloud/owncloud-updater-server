@@ -66,7 +66,7 @@
  * This configuration array would have the following meaning:
  *
  * 1. 8.2.0 instances would be delivered 8.2.1
- * 2. All instances below 8.2.4 EXCEPT 8.2.1 would be delivered 8.2.4
+ * 2. All instances below 8.2.4 EXCEPT 8.2.0 and 8.2.4 would be delivered 8.2.4
  * 3. 8.2.4 instances get 9.0.0 delivered
  *
  * Oh. And be a nice person and also adjust the integration tests at /tests/integration/features/update.feature after doing
