@@ -81,30 +81,23 @@ return [
 	'production' => [
 	],
 	'stable' => [
-		'10.7' => [
-			'latest' => '10.8.0',
-			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
-		],
 	],
 	'beta' => [
-		'10.7' => [
-			'latest' => '10.8.0',
-			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
-		],
 	],
 	'daily' => [
 		'10.8' => [
 			'downloadUrl' => 'https://download.owncloud.org/community/owncloud-daily-master.zip',
 			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
 		],
-		'10.7' => [
-			'latest' => '10.8.0',
-			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
-		],
 	],
 	// to prevent individual channels from bloating all upgrade path common for all channels go below
 	// if you move anything here make sure you updated 'eol_latest' key 
 	'eol' => [
+		// 10.8.0 is the most recent with PHP 7.2 support. So 10.4.1 - 10.7.0 should always update through it
+		'10.7' => [
+			'latest' => '10.8.0',
+			'web' => 'https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html',
+		],
 		'10.6' => [
 			'latest' => '10.8.0',
 			'web' => 'https://doc.owncloud.org/server/10.6/admin_manual/maintenance/upgrade.html',
@@ -249,5 +242,5 @@ return [
 			'web' => 'https://doc.owncloud.org/server/7.0/admin_manual/maintenance/upgrade.html',
 		],
 	],
-	'eol_latest' => '10.6.100',
+	'eol_latest' => '10.7.100',
 ];
