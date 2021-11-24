@@ -69,7 +69,7 @@ Feature: Testing the update scenario of releases on the daily channel
   Scenario: Updating an up-to-date ownCloud 10.3 daily
     Given There is a release with channel "daily"
     And The received version is "10.2.100"
-    And the received build is "2021-10-19T18:44:30+00:00"
+    And the received build is "2031-10-19T18:44:30+00:00"
     When The request is sent
     Then The response is empty
 
@@ -87,7 +87,7 @@ Feature: Testing the update scenario of releases on the daily channel
   Scenario: Updating an up-to-date ownCloud 10.2 daily
     Given There is a release with channel "daily"
     And The received version is "10.2.100"
-    And the received build is "2021-10-19T18:44:30+00:00"
+    And the received build is "2031-10-19T18:44:30+00:00"
     When The request is sent
     Then The response is empty
     
@@ -105,7 +105,7 @@ Feature: Testing the update scenario of releases on the daily channel
   Scenario: Updating an up-to-date ownCloud 10.1 daily
     Given There is a release with channel "daily"
     And The received version is "10.1.100"
-    And the received build is "2021-10-19T18:44:30+00:00"
+    And the received build is "2031-10-19T18:44:30+00:00"
     When The request is sent
     Then The response is empty
 
@@ -123,7 +123,7 @@ Feature: Testing the update scenario of releases on the daily channel
   Scenario: Updating an up-to-date ownCloud 10.0 daily
     Given There is a release with channel "daily"
     And The received version is "10.0.100"
-    And the received build is "2021-10-19T18:44:30+00:00"
+    And the received build is "2031-10-19T18:44:30+00:00"
     When The request is sent
     Then The response is empty
 
