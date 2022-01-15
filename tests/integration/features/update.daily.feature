@@ -9,7 +9,7 @@ Feature: Testing the update scenario of releases on the daily channel
     Then The response is non-empty
     And Update to version "100.0.0.0" is available
     And URL to download is "https://download.owncloud.org/community/owncloud-daily-master.zip"
-    And URL to documentation is "https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html"
+    And URL to documentation is "https://doc.owncloud.com/server/latest/admin_manual/maintenance/upgrading/update.html"
 
   ##### Tests for 10.7 should go below #####
   Scenario: Updating an outdated-dated ownCloud 10.7 daily
