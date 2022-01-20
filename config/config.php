@@ -79,6 +79,14 @@
 
 return [
 	'production' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'stable' => [
 		'10.9' => [
@@ -91,6 +99,24 @@ return [
 		],
 	],
 	'beta' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
+	],
+	'stable' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'daily' => [
 		// 10.8 should be updated to 10.9.1 and not to daily master
