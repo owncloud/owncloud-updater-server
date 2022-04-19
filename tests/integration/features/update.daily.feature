@@ -1,5 +1,16 @@
 Feature: Testing the update scenario of releases on the daily channel
 ##### Please always order by version number descending #####
+  ##### Tests for 10.9 should go below #####
+  Scenario: Updating an outdated-dated ownCloud 10.9 daily
+    Given There is a release with channel "daily"
+    And The received version is "10.9.100"
+    And the received build is "2021-03-19T18:44:30+00:00"
+    When The request is sent
+    Then The response is non-empty
+    And Update to version "100.0.0.0" is available
+    And URL to download is "https://download.owncloud.org/community/owncloud-10.9.1.zip"
+    And URL to documentation is "https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html"
+
   ##### Tests for 10.8 should go below #####
   Scenario: Updating an outdated-dated ownCloud 10.8 daily
     Given There is a release with channel "daily"
@@ -8,8 +19,8 @@ Feature: Testing the update scenario of releases on the daily channel
     When The request is sent
     Then The response is non-empty
     And Update to version "100.0.0.0" is available
-    And URL to download is "https://download.owncloud.org/community/owncloud-daily-master.zip"
-    And URL to documentation is "https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html"
+    And URL to download is "https://download.owncloud.org/community/owncloud-10.9.1.zip"
+    And URL to documentation is "https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html"
 
   ##### Tests for 10.7 should go below #####
   Scenario: Updating an outdated-dated ownCloud 10.7 daily

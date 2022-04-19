@@ -79,15 +79,60 @@
 
 return [
 	'production' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'stable' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'beta' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
+	],
+	'stable' => [
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'daily' => [
+		// 10.8 should be updated to 10.9.1 and not to daily master
+		// 10.9 should be updated to 10.9.1 as well
+		// 10.9.1 should be updated to daily master instead
 		'10.8' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.9' => [
+			'latest' => '10.9.1',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.9.1' => [
 			'downloadUrl' => 'https://download.owncloud.org/community/owncloud-daily-master.zip',
-			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
+			'web' => 'https://doc.owncloud.com/server/latest/admin_manual/maintenance/upgrading/update.html',
 		],
 	],
 	// to prevent individual channels from bloating all upgrade path common for all channels go below
