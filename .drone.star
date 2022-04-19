@@ -129,10 +129,10 @@ def build():
                 'repo': 'registry.owncloud.com/internal/server-updater',
                 'auto_tag': True,
                 'username': {
-                    'from_secret': 'docker_username',
+                    'from_secret': 'registry_username',
                 },
                 'password': {
-                    'from_secret': 'docker_password',
+                    'from_secret': 'registry_password',
                 },
             },
             'when': {
