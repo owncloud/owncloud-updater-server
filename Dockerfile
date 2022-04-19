@@ -1,7 +1,7 @@
 FROM owncloudops/nginx:latest
 
 LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
-    org.label-schema.name="ownCloud Client Updater Server" \
+    org.label-schema.name="ownCloud Server Updater Server" \
     org.label-schema.vendor="ownCloud GmbH" \
     org.label-schema.schema-version="1.0"
 

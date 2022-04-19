@@ -30,3 +30,34 @@ Example call: update-server/?version=8x2x0x12x1448709225.0768x1448709281xstablex
 cd tests/integration
 SERVER_PROTO="http" SERVER_HOST="example.org:8080/whatever" ../../vendor/bin/behat
 ```
+
+## Docker usage
+
+### Variables used in overlay/etc/templates/owncloud-updater-server.php.tmpl
+
+ - "OWNCLOUD_UPDATER_SERVER_CHANNELLIST 			- whitespace separated list of channels
+ - "OWNCLOUD_UPDATER_SERVER_" $cha "_VERSIONS			- whitespace separated list of versions in a channel
+ - "OWNCLOUD_UPDATER_SERVER_" $cha "_" $ver "_LATEST" 		- the 'latest' value for a version and channel combination.
+ - "OWNCLOUD_UPDATER_SERVER_" $cha "_" $ver "_WEB"		- the 'web' value ...
+ - "OWNCLOUD_UPDATER_SERVER_" $cha "_" $ver "_DOWNLOAD_URL" 	- the 'downloadUrl' value ...
+
+### Example
+
+Using a real config.php instead of the above variable decomposition, and
+using a minimalistic query string.
+
+```
+docker build -t owncloud-updater-server .
+docker run -ti -p 8080:8080 -v $PWD/config/config.php:/etc/templates/owncloud-updater-server.php.tmpl owncloud-updater-server
+curl 'http://localhost:8080/?version=10x7x0x12xxxstablexx'
+```
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<owncloud>
+<version>10.8.0</version>
+<versionstring>ownCloud 10.8.0</versionstring>
+<url>https://download.owncloud.org/community/owncloud-10.8.0.zip</url>
+<web>https://doc.owncloud.org/server/10.7/admin_manual/maintenance/upgrade.html</web>
+</owncloud>
+```
+
