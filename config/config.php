@@ -110,7 +110,7 @@ return [
 	],
 	'daily' => [
 		// 10.8 should be updated to 10.10.0 and not to daily master
-		/ 10.9.0 should be updated to 10.9.1 as well
+		// 10.9.0 should be updated to 10.9.1 as well
 		// 10.9.* should be updated to daily master instead
 		// When we'll have a 10.10.1, then according to https://github.com/owncloud/owncloud-updater-server/pull/17#issuecomment-1043463772
 		// there is one exception: 10.10.0 should update to 10.10.1 and not to daily.
