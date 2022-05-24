@@ -32,6 +32,7 @@
  * 		'latest' => '8.2.3',
  * 		'web' => 'https://doc.owncloud.org/server/8.2/admin_manual/maintenance/upgrade.html',
  * 		// downloadUrl is an optional entry, if not specified the URL is generated using https://download.owncloud.org/community/owncloud-'.$newVersion['latest'].'.zip
+ * 		// This default is correct for 10.7.x and lower, but it does not work for 10.8.x and up, where we have migrated to download.owncloud.com/server/stable instead.
  * 		'downloadUrl' => 'https://download.owncloud.org/foo.zip',
  * 	],
  * ]
@@ -81,30 +82,36 @@ return [
 	'production' => [
 		'10.10' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
 		],
 		'10.9' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
 	],
 	'stable' => [
 		'10.10' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
 		],
 		'10.9' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
 	],
 	'beta' => [
 		'10.10' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
 		],
 		'10.9' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
 	],
@@ -129,6 +136,7 @@ return [
 		],
 		'10.8' => [
 			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
                 ],
 	],
