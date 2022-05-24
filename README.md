@@ -30,3 +30,11 @@ Example call: update-server/?version=8x2x0x12x1448709225.0768x1448709281xstablex
 cd tests/integration
 SERVER_PROTO="http" SERVER_HOST="example.org:8080/whatever" ../../vendor/bin/behat
 ```
+
+## Testing with a temporary local server
+`make test`
+
+Run a single scenario only (the scenario starting in line 4 of the feature file):
+
+`make test BEHAT_FEATURE=features/update.daily.feature:4`
+

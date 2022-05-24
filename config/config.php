@@ -90,6 +90,11 @@ return [
 			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
+		'10.8' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
+                ],
 	],
 	'stable' => [
 		'10.10' => [
@@ -102,6 +107,11 @@ return [
 			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
 			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
+		'10.8' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
+                ],
 	],
 	'beta' => [
 		'10.10' => [
@@ -124,7 +134,7 @@ return [
 		'10.10.0' => [
 			// 'latest' => '10.10.1',	# when there will be 10.10.1
 			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
-			'web' => 'https://doc.owncloud.org/server/latest/admin_manual/maintenance/upgrade.html',
+			'web' => 'https://doc.owncloud.org/server/10.10/admin_manual/maintenance/upgrade.html',
 		],
 		'10.10' => [
 			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
@@ -136,8 +146,8 @@ return [
 		],
 		'10.8' => [
 			'latest' => '10.10.0',
-			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
-			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
+			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
                 ],
 	],
 	// to prevent individual channels from bloating all upgrade path common for all channels go below
