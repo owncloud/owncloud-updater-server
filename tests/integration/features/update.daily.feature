@@ -1,7 +1,7 @@
 Feature: Testing the update scenario of releases on the daily channel
 ##### Please always order by version number descending #####
   ##### Tests for 10.10 should go below #####
-  Scenario: Updating an outdated-dated ownCloud 10.10 daily
+  Scenario: Updating an outdated-dated ownCloud 10.10.100 daily
     Given There is a release with channel "daily"
     And The received version is "10.10.100"
     And the received build is "2021-03-19T18:44:30+00:00"
