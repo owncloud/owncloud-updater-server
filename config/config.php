@@ -127,7 +127,7 @@ return [
 			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
 			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
-		10.8' => [
+		'10.8' => [
 			'latest' => '10.10.0',
 			'web' => 'https://doc.owncloud.com/server/10.8/admin_manual/maintenance/upgrading/update.html',
                 ],
