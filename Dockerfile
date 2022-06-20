@@ -10,9 +10,9 @@ ADD overlay/ /
 ADD . /var/www/app/
 
 RUN apk --update add composer && \
-    apk --update add php7 php7-fpm php7-xmlwriter && \
+    apk --update add php8 php8-fpm php8-xmlwriter && \
     rm -rf /var/www/localhost && \
-    rm -f /etc/php7/php-fpm.d/www.conf && \
+    rm -f /etc/php8/php-fpm.d/www.conf && \
     composer install --working-dir=/var/www/app --no-dev --optimize-autoloader && \
     composer -q clearcache && \
     rm -rf /var/cache/apk/* && \
@@ -24,7 +24,7 @@ RUN apk --update add composer && \
     mkdir -p /var/lib/php/soap_cache && \
     mkdir -p /var/lib/php/session && \
     chown -R nginx /var/lib/php && \
-    chown nginx /etc/php7/php.ini && \
+    chown nginx /etc/php8/php.ini && \
     chown -R nginx:nginx /var/www/app
 
 EXPOSE 8080

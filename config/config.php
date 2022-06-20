@@ -32,6 +32,7 @@
  * 		'latest' => '8.2.3',
  * 		'web' => 'https://doc.owncloud.org/server/8.2/admin_manual/maintenance/upgrade.html',
  * 		// downloadUrl is an optional entry, if not specified the URL is generated using https://download.owncloud.org/community/owncloud-'.$newVersion['latest'].'.zip
+ * 		// This default is correct for 10.7.x and lower, but it does not work for 10.8.x and up, where we have migrated to download.owncloud.com/server/stable instead.
  * 		'downloadUrl' => 'https://download.owncloud.org/foo.zip',
  * 	],
  * ]
@@ -79,20 +80,69 @@
 
 return [
 	'production' => [
+		'10.10' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.9' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'stable' => [
+		'10.10' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.9' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'beta' => [
+		'10.10' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.9' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
+		],
 	],
 	'daily' => [
-		'10.8' => [
-			'downloadUrl' => 'https://download.owncloud.org/community/owncloud-daily-master.zip',
-			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
+		// 10.8 should be updated to 10.10.0 and not to daily master
+		// 10.9.0 should be updated to 10.9.1 as well
+		// 10.9.* should be updated to daily master instead
+		// When we'll have a 10.10.1, then according to https://github.com/owncloud/owncloud-updater-server/pull/17#issuecomment-1043463772
+		// there is one exception: 10.10.0 should update to 10.10.1 and not to daily.
+		'10.10.0' => [
+			// 'latest' => '10.10.1',	# when there will be 10.10.1
+			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.org/server/10.10/admin_manual/maintenance/upgrade.html',
+		],
+		'10.10' => [
+			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.com/server/10.10/admin_manual/maintenance/upgrading/update.html',
+		],
+		'10.9' => [
+			'downloadUrl' => 'https://download.owncloud.com/server/daily/owncloud-daily-master.zip',
+			'web' => 'https://doc.owncloud.com/server/10.9/admin_manual/maintenance/upgrading/update.html',
 		],
 	],
 	// to prevent individual channels from bloating all upgrade path common for all channels go below
 	// if you move anything here make sure you updated 'eol_latest' key 
 	'eol' => [
+		'10.8' => [
+			'latest' => '10.10.0',
+			'downloadUrl' => 'https://download.owncloud.com/server/stable/owncloud-10.10.0.zip',
+			'web' => 'https://doc.owncloud.org/server/10.8/admin_manual/maintenance/upgrade.html',
+                ],
 		// 10.8.0 is the most recent with PHP 7.2 support. So 10.4.1 - 10.7.0 should always update through it
 		'10.7' => [
 			'latest' => '10.8.0',
@@ -242,5 +292,5 @@ return [
 			'web' => 'https://doc.owncloud.org/server/7.0/admin_manual/maintenance/upgrade.html',
 		],
 	],
-	'eol_latest' => '10.7.100',
+	'eol_latest' => '10.8.100',
 ];

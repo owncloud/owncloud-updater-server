@@ -3,6 +3,7 @@ COMPOSER=composer
 SERVER_HOST=localhost:8888
 PRODUCTION_HOST=updates.owncloud.com/server/
 PRODUCTION_PROTO=https
+BEHAT_FEATURE=.
 
 composer_deps=vendor
 composer_dev_deps=vendor/bin/
@@ -41,7 +42,7 @@ stop-server:
 
 .PHONY: test
 test: $(behat) start-server
-	cd tests/integration && $(abspath $(behat)) .
+	set -x; cd tests/integration && $(abspath $(behat)) $(BEHAT_FEATURE)
 	$(MAKE) stop-server
 
 .PHONY: test-production
