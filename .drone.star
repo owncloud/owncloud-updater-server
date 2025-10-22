@@ -20,7 +20,6 @@ def main(ctx):
     build = buildPipelines()
     dependsOn(stages, build)
 
-
     return before + stages + build
 
 def beforePipelines():
