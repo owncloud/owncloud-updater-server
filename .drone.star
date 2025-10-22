@@ -1,9 +1,5 @@
 config = {
     'app': 'owncloud-updater-server',
-    'rocketchat': {
-        'channel': 'server',
-        'from_secret': 'private_rocketchat'
-    },
     'branches': ['main'],
     'appInstallCommand': 'composer install',
 }
@@ -24,10 +20,7 @@ def main(ctx):
     build = buildPipelines()
     dependsOn(stages, build)
 
-    after = afterPipelines()
-    dependsOn(build, after)
-
-    return before + stages + build + after
+    return before + stages + build
 
 def beforePipelines():
     return []
@@ -38,9 +31,6 @@ def stagePipelines():
 def buildPipelines():
     return [build()]
 
-
-def afterPipelines():
-    return [notify()]
 
 def phpunit():
     result = {
@@ -144,40 +134,6 @@ def build():
         'depends_on': [],
         'trigger': {
             'ref': ['refs/pull/**', 'refs/tags/**']
-        }
-    }
-
-    for branch in config['branches']:
-        result['trigger']['ref'].append('refs/heads/%s' % branch)
-
-    return result
-
-def notify():
-    result = {
-        'kind':
-        'pipeline',
-        'type':
-        'docker',
-        'name':
-        'chat-notifications',
-        'clone': {
-            'disable': True
-        },
-        'steps': [{
-            'name': 'notify-rocketchat',
-            'image': 'plugins/slack:1',
-            'pull': 'always',
-            'settings': {
-                'webhook': {
-                    'from_secret': config['rocketchat']['from_secret']
-                },
-                'channel': config['rocketchat']['channel']
-            }
-        }],
-        'depends_on': [],
-        'trigger': {
-            'ref': ['refs/tags/**'],
-            'status': ['success', 'failure']
         }
     }
 
