@@ -1,4 +1,4 @@
-# agents.md -- ownCloud Updater Server
+# AGENTS.md -- ownCloud Updater Server
 
 ## Repository Overview
 
