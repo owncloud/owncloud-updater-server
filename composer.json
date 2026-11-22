@@ -11,7 +11,7 @@
     }
   },
   "require-dev": {
-    "behat/behat": "^3.8",
+    "behat/behat": "^4.0",
     "phpunit/phpunit": "^13.2"
   }
 }
